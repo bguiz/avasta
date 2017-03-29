@@ -1,6 +1,6 @@
 {
   "name": "avasta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "status code utilities",
   "main": "avasta.js",
   "scripts": {
@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/bguiz/avasta#readme",
   "devDependencies": {
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "jest-object": "^0.0.1"
   },
   "dependencies": {
-    "jest-object": "^0.0.1"
   }
 }

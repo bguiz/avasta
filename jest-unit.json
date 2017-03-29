@@ -1,0 +1,4 @@
+{
+	"testMatch": ["**/*.unit.jest.js"],
+	"snapshotSerializers": ["jest-object/serialise-js-object.js"]
+}
