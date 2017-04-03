@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[avasta] handle name and message 1`] = `
+exports[`[avasta] [express] handle name and message 1`] = `
 {
   "json": {
     "code": 400000,
@@ -10,7 +10,7 @@ exports[`[avasta] handle name and message 1`] = `
 }
 `;
 
-exports[`[avasta] handle name without message 1`] = `
+exports[`[avasta] [express] handle name without message 1`] = `
 {
   "json": {
     "code": 400000
@@ -19,9 +19,37 @@ exports[`[avasta] handle name without message 1`] = `
 }
 `;
 
-exports[`[avasta] handle undefined name 1`] = `
+exports[`[avasta] [express] handle undefined name 1`] = `
 {
   "json": {
+    "code": 599999
+  },
+  "status": 599
+}
+`;
+
+exports[`[avasta] [schwag] handle name and message 1`] = `
+{
+  "body": {
+    "code": 400000,
+    "message": "custom message"
+  },
+  "status": 400
+}
+`;
+
+exports[`[avasta] [schwag] handle name without message 1`] = `
+{
+  "body": {
+    "code": 400000
+  },
+  "status": 400
+}
+`;
+
+exports[`[avasta] [schwag] handle undefined name 1`] = `
+{
+  "body": {
     "code": 599999
   },
   "status": 599

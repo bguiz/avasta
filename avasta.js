@@ -21,7 +21,7 @@ function createStatusCodes (hash) {
 		codeToName.set(code, name);
 	});
 
-	function expressJsonResponse (res, name, message) {
+	function response (name, message) {
 		let result = nameToCode.get(name);
 		if (!result) {
 			result = {
@@ -29,17 +29,34 @@ function createStatusCodes (hash) {
 				code: 599999,
 			};
 		}
-
 		// name should never be exposed
+		return Object.assign({ message }, result);
+	}
+
+	function expressJsonResponse (res, name, message) {
+		const result = response(name, message);
+
 		res.status(result.status).json({
 			code: result.code,
-			message,
+			message: result.message,
 		});
+	}
+
+	function schwagResponse (output, name, message) {
+		const result = response(name, message);
+
+		output.status = result.status;
+		output.body = {
+			code: result.code,
+			message: result.message,
+		};
 	}
 
 	return {
 		nameToCode,
 		codeToName,
+		response,
 		expressJsonResponse,
+		schwagResponse,
 	};
 }
