@@ -12,17 +12,18 @@ describe('[avasta]', () => {
 	beforeAll(() => {
 		testCodes = require('./avasta.unit.jest.json');
 		testAvasta = avasta(testCodes);
-		resJson = jest.fn().mockImplementation(() => {
-			return;
-		});
-		resStatus = jest.fn().mockImplementation(() => {
-			return {
-				json: resJson,
-			};
-		});
+		resJson = jest.fn();
+		resStatus = jest.fn();
 		res = {
+			json: resJson,
 			status: resStatus,
 		};
+		resJson.mockImplementation(() => {
+			return res;
+		});
+		resStatus.mockImplementation(() => {
+			return res;
+		});
 	});
 
 	it('handle name and message', () => {
